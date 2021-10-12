@@ -129,3 +129,20 @@ print(student_mg_3)
 
 # data frame to CSV
 print(student_mg_3.to_csv('student_mg_3.csv'))
+
+import pandas as pd
+print(pd.read_clipboard())
+
+import pandas as pd
+df = pd.read_csv('http://bit.ly/kaggletrain')
+print(df.head())
+
+
+# combine csv
+from glob import glob
+pd.read_csv("dataset/passenger1.csv")
+pd.read_csv("dataset/passenger2.csv")
+files = glob("dataset/passenger*.csv")
+
+df = pd.concat([pd.read_csv(f) for f in files])
+df.reset_index(drop=True)
